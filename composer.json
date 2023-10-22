@@ -1,8 +1,8 @@
 {
 	"name": "charliedev/element-map",
-	"description": "Simple visualization panel that lists related elements in their associated editors.",
+	"description": "Simple visualization panel that lists related elements in their associated editors. Version 2+ supports Craft 4+!",
 	"type": "craft-plugin",
-	"version": "1.2.1",
+	"version": "2.0.1",
 	"license": "MIT",
 	"authors": [
 		{
@@ -24,7 +24,7 @@
 		"email": "support@charliedev.com"
 	},
 	"require": {
-		"craftcms/cms": "^3.0.0-RC1"
+		"craftcms/cms": "^4.0.0"
 	},
 	"autoload": {
 		"psr-4": {

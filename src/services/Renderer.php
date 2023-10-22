@@ -189,7 +189,9 @@ class Renderer extends Component
 	private function getMatrixBlockIdsByOwners($elementIds)
 	{
 		$conditions = [
-			'ownerId' => $elementIds,
+// 			'ownerId' => $elementIds,
+// changed in craft v4+
+			'primaryOwnerId' => $elementIds,
 		];
 		return (new Query())
 			->select('id')
@@ -212,7 +214,8 @@ class Renderer extends Component
 		}
 
 		$conditions = [
-			'ownerId' => $elementIds,
+// 			'ownerId' => $elementIds,
+			'primaryOwnerId' => $elementIds,
 		];
 		return (new Query())
 			->select('id')
@@ -406,7 +409,8 @@ class Renderer extends Component
 		return (new Query())
 			->select('[[e.id]] AS id, [[e.type]] AS type')
 			->from('{{%matrixblocks}} mb')
-			->leftJoin('{{%elements}} e', '[[mb.ownerId]] = [[e.id]]')
+// 			->leftJoin('{{%elements}} e', '[[mb.ownerId]] = [[e.id]]')
+			->leftJoin('{{%elements}} e', '[[mb.primaryOwnerId]] = [[e.id]]')
 			->where($conditions)
 			->all();
 	}
@@ -426,7 +430,8 @@ class Renderer extends Component
 		return (new Query())
 			->select('[[e.id]] AS id, [[e.type]] AS type')
 			->from('{{%supertableblocks}} stb')
-			->leftJoin('{{%elements}} e', '[[stb.ownerId]] = [[e.id]]')
+// 			->leftJoin('{{%elements}} e', '[[stb.ownerId]] = [[e.id]]')
+			->leftJoin('{{%elements}} e', '[[stb.primaryOwnerId]] = [[e.id]]')
 			->where($conditions)
 			->all();
 	}
